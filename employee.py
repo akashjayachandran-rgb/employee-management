@@ -1,25 +1,34 @@
-class Employee: #creating a class
-    def __init__(self, name, employee_id, department, salary): # def__init__ intialising and self to work within this function
-        self.name = name  # assigning it so acts like a variable to store data
+class Employee:  # Creating the Employee class
+
+    def __init__(self, name, employee_id, department, salary):
+        self.name = name
         self.employee_id = employee_id
         self.department = department
         self.salary = salary
 
-    def display(self): # assigining the display function
-        print("Name :", self.name) #print statemtn after getting the details
+    # New method added
+    def calculate_annual_salary(self):
+        return self.salary * 12
+
+    def display(self):
+        print("Name :", self.name)
         print("Employee ID :", self.employee_id)
         print("Department :", self.department)
         print("Salary :", self.salary)
 
+        # Displaying annual salary
+        print("Annual Salary :", self.calculate_annual_salary())
 
-class SalesEmployee(Employee):  # inheriting employee and creating a subclass
-    def __init__(self, name, employee_id, department, salary, sales_target): # same process
-        super().__init__(name, employee_id, department, salary) # super is used to like call or go to the parent class for the deets
-        self.sales_target = sales_target # adding a new variable for just the sales employee
+
+class SalesEmployee(Employee):  # Inheriting from Employee
+
+    def __init__(self, name, employee_id, department, salary, sales_target):
+        super().__init__(name, employee_id, department, salary)
+        self.sales_target = sales_target
 
     def display(self):
-        super().display() # again using the super command to copy the functions of def display self from the parent class
-        print("Sales Target :", self.sales_target) 
+        super().display()
+        print("Sales Target :", self.sales_target)
 
 
 
